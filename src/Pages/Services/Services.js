@@ -14,9 +14,9 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className='m-5 mx-auto'>
+            {/* <div className='m-5 mx-auto'>
                 <button className="btn btn-primary">See All</button>
-            </div>
+            </div> */}
         </div>
     );
 };
