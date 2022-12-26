@@ -14,7 +14,7 @@ const ChooseUs = () => {
 
                     <div className="flex gap-y-2 flex-wrap">
                         <div className='flex w-1/2'>
-                            <img src="https://i.ibb.co/87SYd6R/icons-for-negev-02-768x769.png" alt='' className=" w-20 h-20 bg-yellow-300" />
+                            <img src="https://i.ibb.co/87SYd6R/icons-for-negev-02-768x769.png" alt='' className=" w-20 h-20 bg-yellow-200" />
                             <div className='mx-5'>
                                 <p className='mb-5 text-2xl'>Green-building</p>
                                 <p>Sustainable processes
@@ -36,7 +36,7 @@ const ChooseUs = () => {
                             </div>
                         </div>
                         <div className='flex w-1/2'>
-                            <img src="https://i.ibb.co/vsBZdCX/icons-for-negev-03-768x770.png" alt='' className=" w-20 h-20" />
+                            <img src="https://i.ibb.co/vsBZdCX/icons-for-negev-03-768x770.png" alt='' className=" w-20 h-20 bg-yellow-200" />
                             <div className='mx-5'>
                                 <p className='mb-5 text-2xl'>Great people</p>
                                 <p>1000+ workers</p>
