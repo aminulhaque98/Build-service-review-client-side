@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import About from '../../About/About';
+import ChooseUs from '../../ChooseUs/ChooseUs';
 import Services from '../../Services/Services';
 import Banner from '../Banner/Banner';
 
@@ -8,8 +10,13 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Services></Services>
-            <button className="btn btn-outline btn-secondary mx-auto text-xl m-5">See All</button>
+            <div className="text-center m-8">
+                <Link>
+                    <button className="btn btn-outline btn-secondary text-2xl px-20">See All</button>
+                </Link>
+            </div>
             <About></About>
+            <ChooseUs></ChooseUs>
         </div>
     );
 };

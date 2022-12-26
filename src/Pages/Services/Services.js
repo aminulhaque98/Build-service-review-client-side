@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ServicesCard from './ServicesCard';
 
 const Services = () => {
+    const [services, setServices] = useState([]);
+    useEffect(() => {
+        fetch('services.json')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
+            <div className='text-center my-5'>
+                <p className='text-2xl font-bold '>Service</p>
+                <h2 className='text-5xl font-semibold'>Our Service Aria</h2>
+                <p className=''>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, vitae?</p>
             </div>
 
-            {/* <div className='m-5 mx-auto'>
-                <button className="btn btn-primary">See All</button>
-            </div> */}
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+
+
+                {
+                    services.map(service => <ServicesCard
+                        key={service._id}
+                        service={service}
+                    ></ServicesCard>)
+                }
+
+            </div>
+
+
         </div>
     );
 };
