@@ -57,19 +57,6 @@ const ChooseUs = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/* 
-home picture  link 
-                    https://i.ibb.co/HVPyp1Q/348.jpg
-                    https://i.ibb.co/jVG83Y7/download-5.jpg
-                    https://i.ibb.co/VBRkCTn/images-8.jpg
-                    https://i.ibb.co/CvYMbsY/images-10.jpg
-                     https://i.ibb.co/d2rxfWj/images-11.jpg
-                    https://i.ibb.co/qMSM2M1/350.jpg
-                    https://i.ibb.co/qRqxtdt/images-12.jpg 
-                    
-                    */}
-
                 </div>
                 <div className='w-1/2'>
                     <p className='text-xl font-bold text-orange-600'>Who We are</p>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import About from '../../About/About';
 import ChooseUs from '../../ChooseUs/ChooseUs';
+import FeaturesProjects from '../../FeaturesProjects/FeaturesProjects';
 import Services from '../../Services/Services';
 import Banner from '../Banner/Banner';
 
@@ -17,6 +18,7 @@ const Home = () => {
                 </Link>
             </div>
             <ChooseUs></ChooseUs>
+            <FeaturesProjects></FeaturesProjects>
         </div>
     );
 };
