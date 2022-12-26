@@ -9,13 +9,13 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <About></About>
             <Services></Services>
             <div className="text-center m-8">
                 <Link>
                     <button className="btn btn-outline btn-secondary text-2xl px-20">See All</button>
                 </Link>
             </div>
-            <About></About>
             <ChooseUs></ChooseUs>
         </div>
     );

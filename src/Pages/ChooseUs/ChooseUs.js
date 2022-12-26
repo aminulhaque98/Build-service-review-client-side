@@ -4,14 +4,7 @@ import { Link } from 'react-router-dom';
 const ChooseUs = () => {
     return (
         <div className="hero my-20 rounded-lg">
-
-            <div className="hero-content gap-x-7 flex-col lg:flex-row">
-                <div className='w-1/2'>
-                    <p className='text-xl font-bold text-orange-600'>Who We are</p>
-                    <img src="https://i.ibb.co/jVG83Y7/download-5.jpg" alt='' className="rounded-lg my-6 w-full h-52" />
-                    <p className="">Truseen Construction Ltd. is built on a proud history of quality workmanship and innovation and with a strong commitment to our clients and building partners. We are focused on producing quality buildings on time and on budget.</p>
-                    <Link to=""><button className="btn btn-primary mt-4">Learn More</button></Link>
-                </div>
+            <div className="hero-content gap-x-7 flex-col lg:flex-row ">
 
                 <div className='w-1/2'>
                     <p className='text-2xl font-bold text-orange-600'>Why Choose Us?</p>
@@ -21,7 +14,7 @@ const ChooseUs = () => {
 
                     <div className="flex gap-y-2 flex-wrap">
                         <div className='flex w-1/2'>
-                            <img src="https://i.ibb.co/87SYd6R/icons-for-negev-02-768x769.png" alt='' className=" w-20 h-20" />
+                            <img src="https://i.ibb.co/87SYd6R/icons-for-negev-02-768x769.png" alt='' className=" w-20 h-20 bg-yellow-300" />
                             <div className='mx-5'>
                                 <p className='mb-5 text-2xl'>Green-building</p>
                                 <p>Sustainable processes
@@ -68,6 +61,7 @@ const ChooseUs = () => {
                     {/* 
 home picture  link 
                     https://i.ibb.co/HVPyp1Q/348.jpg
+                    https://i.ibb.co/jVG83Y7/download-5.jpg
                     https://i.ibb.co/VBRkCTn/images-8.jpg
                     https://i.ibb.co/CvYMbsY/images-10.jpg
                      https://i.ibb.co/d2rxfWj/images-11.jpg
@@ -76,8 +70,15 @@ home picture  link
                     
                     */}
 
-
                 </div>
+                <div className='w-1/2'>
+                    <p className='text-xl font-bold text-orange-600'>Who We are</p>
+                    <img src="https://i.ibb.co/HVPyp1Q/348.jpg" alt='' className="rounded-lg my-6 w-full h-52" />
+                    <p className="">Truseen Construction Ltd. is built on a proud history of quality workmanship and innovation and with a strong commitment to our clients and building partners. We are focused on producing quality buildings on time and on budget.</p>
+                    <Link to=""><button className="btn btn-primary mt-4">Learn More</button></Link>
+                </div>
+
+
             </div>
         </div>
     );
