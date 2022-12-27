@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+
 
 const Header = () => {
+    const { user, logOut, toggleTheme } = useContext(AuthContext);
+
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/'>My service</Link></li>
         <li className='font-semibold'><Link to='/'>FQA</Link></li>
         <li className='font-semibold'><Link to='/'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/login'>Login</Link></li>
     </>
 
     return (
@@ -28,8 +34,28 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
+
             <div className="navbar-end">
-                <button className="btn btn-ghost">Button</button>
+
+                <Link className='me-3' to="/profile">
+                    {user?.photoURL ?
+                        <>
+
+                            {user?.photoURL ?
+
+                                <figure><img style={{ height: '50px' }} className='w-full h-56 rounded-full' src={user?.photoURL} alt="Shoes" /></figure>
+
+                                :
+                                <span>{user?.displayName}</span>
+                            }
+
+                        </>
+
+                        :
+                        <FaUserAlt style={{ height: '50px' }} ></FaUserAlt>
+                    }
+                </Link>
+
             </div>
         </div>
 
