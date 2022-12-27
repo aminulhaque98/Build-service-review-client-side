@@ -4,6 +4,7 @@ import Main from '../../Layout/Main';
 import AboutInfo from '../../Pages/About/AboutInfo';
 import AllServices from '../../Pages/AllServices/AllServices';
 import Home from '../../Pages/Home/Home/Home';
+import Login from '../../Pages/Login/Login/Login';
 import NotFound from '../../Pages/NotFoundedPage/NotFound';
 
 export const routes = createBrowserRouter([
@@ -22,6 +23,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/aboutinfo',
                 element: <AboutInfo></AboutInfo>,
+            },
+            {
+                path: '/login',
+                element: <Login></Login>,
             },
 
         ]
