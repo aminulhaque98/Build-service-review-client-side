@@ -36,11 +36,9 @@ const Header = () => {
             </div>
 
             <div className="navbar-end">
-
                 <Link className='me-3' to="/profile">
                     {user?.photoURL ?
                         <>
-
                             {user?.photoURL ?
 
                                 <figure><img style={{ height: '50px' }} className='w-full h-56 rounded-full' src={user?.photoURL} alt="Shoes" /></figure>
