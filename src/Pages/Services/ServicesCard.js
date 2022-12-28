@@ -11,7 +11,7 @@ const ServicesCard = ({ service }) => {
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p>{description.slice(0, 100) + '...'}</p>
-                    <div className='justify-between'>
+                    <div className='flex'>
 
                         <p className='text-xl'>Price: ${price}</p>
 

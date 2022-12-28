@@ -92,9 +92,9 @@ const Login = () => {
 
                     </form>
                     <div className=" text-center mb-6 ">
-                        <button onClick={handleGoogleSignIn} className="btn btn-secondary mb-5"><FaGooglePlusG></FaGooglePlusG> Login With Google</button>
+                        <button onClick={handleGoogleSignIn} className="btn btn-secondary mb-5 text-xl"><FaGooglePlusG className="text-4xl"></FaGooglePlusG>  Login With Google</button>
 
-                        <p> <small className="text-dark text-xl ">New to this website? Please</small> <Link className='text-orange-700 text-xl font-bold' to='/signup'>Sign Up</Link> </p>
+                        <p> <small className="text-dark text-xl">New to this website? Please</small> <Link className='text-orange-700 text-xl font-bold' to='/signup'>Sign Up</Link> </p>
                     </div>
                 </div>
             </div>
