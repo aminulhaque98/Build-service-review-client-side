@@ -1,15 +1,19 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { FaGooglePlusG } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signInUser, setLoading } = useContext(AuthContext);
+    const { signInUser, providerLogin, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+
+    const googleProvider = new GoogleAuthProvider();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -41,6 +45,15 @@ const Login = () => {
                 setLoading(false)
             })
 
+    }
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
 
@@ -76,8 +89,13 @@ const Login = () => {
 
                         <p className="text-orange-700">{error}</p>
 
-                        <p> <small className="text-dark my-6 text-xl ">New to this website? Please</small> <Link className='text-orange-700 text-xl font-bold' to='/signup'>Sign Up</Link> </p>
+
                     </form>
+                    <div className=" text-center mb-6 ">
+                        <button onClick={handleGoogleSignIn} className="btn btn-secondary mb-5"><FaGooglePlusG></FaGooglePlusG> Login With Google</button>
+
+                        <p> <small className="text-dark text-xl ">New to this website? Please</small> <Link className='text-orange-700 text-xl font-bold' to='/signup'>Sign Up</Link> </p>
+                    </div>
                 </div>
             </div>
         </div>
