@@ -60,7 +60,9 @@ const Header = () => {
                         <>
                             {user?.photoURL ?
 
-                                <figure><img style={{ height: '50px' }} className='w-full h-56 rounded-full' src={user?.photoURL} alt="Shoes" /></figure>
+                                <figure className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                    <img style={{ height: '50px' }} className='w-full h-56 rounded-full' src={user?.photoURL} alt="Shoes" />
+                                </figure>
 
                                 :
                                 <span>{user?.displayName}</span>
