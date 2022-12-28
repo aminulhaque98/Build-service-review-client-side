@@ -20,7 +20,7 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/allservices',
+                path: '/allservice',
                 element: <AllServices></AllServices>,
             },
             {

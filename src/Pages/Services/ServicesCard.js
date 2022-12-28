@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ServicesCard = ({ service }) => {
-    const { img, price, title, rating } = service;
-
+    const { img, price, title, description, rating } = service;
+    console.log(description);
     return (
 
         <div>
@@ -10,7 +10,7 @@ const ServicesCard = ({ service }) => {
                 <figure><img className='w-full h-56' src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>{description.slice(0, 100) + '...'}</p>
                     <div className='justify-between'>
 
                         <p className='text-xl'>Price: ${price}</p>

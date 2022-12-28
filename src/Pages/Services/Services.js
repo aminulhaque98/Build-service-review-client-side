@@ -11,9 +11,9 @@ const Services = () => {
             .then(data => setServices(data))
     }, [])
 
-    const showMore = () => {
-        setVisible((preValue) => preValue * 3)
-    }
+    // const showMore = () => {
+    //     setVisible((preValue) => preValue * 3)
+    // }
 
     return (
         <div>
@@ -35,9 +35,9 @@ const Services = () => {
 
             </div>
 
-            <div className="text-center m-8">
+            {/* <div className="text-center m-8">
                 <button onClick={showMore} className="btn btn-outline btn-secondary text-2xl px-20">show More</button>
-            </div>
+            </div> */}
 
         </div>
     );
