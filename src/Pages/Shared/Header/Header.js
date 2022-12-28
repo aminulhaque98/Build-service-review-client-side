@@ -56,6 +56,8 @@ const Header = () => {
 
             <div className="navbar-end">
                 <Link className='me-3' to="/profile">
+
+
                     {user?.photoURL ?
                         <>
                             {user?.photoURL ?

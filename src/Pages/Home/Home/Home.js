@@ -12,11 +12,6 @@ const Home = () => {
             <Banner></Banner>
             <About></About>
             <Services></Services>
-            <div className="text-center m-8">
-                <Link to='/allservices'>
-                    <button className="btn btn-outline btn-secondary text-2xl px-20">See All</button>
-                </Link>
-            </div>
             <ChooseUs></ChooseUs>
             <FeaturesProjects></FeaturesProjects>
         </div>
