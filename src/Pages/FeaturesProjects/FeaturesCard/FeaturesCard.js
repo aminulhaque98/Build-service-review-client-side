@@ -3,7 +3,6 @@ import React from 'react';
 const FeaturesCard = ({ service }) => {
     const { name, tumble, date } = service.features[0];
 
-    console.log(name, tumble, date)
 
     return (
         <div>
