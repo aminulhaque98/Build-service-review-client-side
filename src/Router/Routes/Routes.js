@@ -8,6 +8,7 @@ import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
 import NotFound from '../../Pages/NotFoundedPage/NotFound';
 import Profile from '../../Pages/Profile/Profile';
+import ServiceDetails from '../../Pages/ServiceDetails/ServiceDetails';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const routes = createBrowserRouter([
@@ -38,6 +39,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+            },
+            {
+                path: '/details/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
 
         ]

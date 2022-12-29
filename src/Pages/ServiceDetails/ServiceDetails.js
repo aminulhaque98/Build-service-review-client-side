@@ -1,24 +1,20 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
-import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-
-const ServicesCard = ({ service }) => {
-    const { _id, img, price, title, description, rating } = service;
-
+const ServiceDetails = () => {
+    const { img, title, description, price } = useLoaderData();
     return (
-
-        <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <div className='my-20'>
+            <div className="card w-1/2 bg-base-100 shadow-xl">
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <figure><img className='w-full h-56' src={img} alt="Shoes" /></figure>
+                        <figure><img className='w-full h-72' src={img} alt="Shoes" /></figure>
                     </PhotoView>
                 </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
-                    <p>{description.slice(0, 100) + '...'}</p>
+                    <p>{description}</p>
                     <div className='flex'>
 
                         <p className='text-xl'>Price: ${price}</p>
@@ -31,15 +27,15 @@ const ServicesCard = ({ service }) => {
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                         </div>
                     </div>
-                    <div className="card-actions justify-end">
+                    {/* <div className="card-actions justify-end">
                         <Link to={`/details/${_id}`}>
                             <button className="btn btn-primary">View Details</button>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
     );
 };
 
-export default ServicesCard;
+export default ServiceDetails;
