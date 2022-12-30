@@ -6,7 +6,7 @@ const ChooseUs = () => {
         <div className="hero my-20 rounded-lg">
             <div className="hero-content gap-x-7 flex-col lg:flex-row ">
 
-                <div className='w-1/2'>
+                <div className='w-full'>
                     <p className='text-2xl font-bold text-orange-600'>Why Choose Us?</p>
 
                     <p className="py-6">As a team, it is our values that drive us. Together we live these values every day, because we know that’s why our clients love working with us. Our promise is simple: You can trust us to ensure your building project is as enjoyable and painless as possible and together, we will be 100% proud of the result.
@@ -58,7 +58,7 @@ const ChooseUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-1/2'>
+                <div className='w-full'>
                     <p className='text-xl font-bold text-orange-600'>Who We are</p>
                     <img src="https://i.ibb.co/HVPyp1Q/348.jpg" alt='' className="rounded-lg my-6 w-full h-52" />
                     <p className="">Truseen Construction Ltd. is built on a proud history of quality workmanship and innovation and with a strong commitment to our clients and building partners. We are focused on producing quality buildings on time and on budget.</p>
