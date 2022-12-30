@@ -5,8 +5,8 @@ import { useLoaderData } from 'react-router-dom';
 const ServiceDetails = () => {
     const { img, title, description, price } = useLoaderData();
     return (
-        <div className='my-20'>
-            <div className="card w-1/2 bg-base-100 shadow-xl">
+        <div className='grid gap-6 grid-cols-1 md:grid-cols-2 my-20'>
+            <div className="card bg-base-100 shadow-xl">
                 <PhotoProvider>
                     <PhotoView src={img}>
                         <figure><img className='w-full h-72' src={img} alt="Shoes" /></figure>
@@ -33,6 +33,9 @@ const ServiceDetails = () => {
                         </Link>
                     </div> */}
                 </div>
+            </div>
+            <div>
+                <h2>this is review section</h2>
             </div>
         </div>
     );

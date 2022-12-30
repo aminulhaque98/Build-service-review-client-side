@@ -7,7 +7,7 @@ const FeaturesCard = ({ service }) => {
     return (
         <div>
             <div>
-                <div className="card w-full shadow-xl image-full">
+                <div className="card w-full shadow-xl image-full skew-y-6">
                     <figure className='w-full h-72'><img src={tumble} className='w-full h-72' alt="feature" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{name}</h2>
