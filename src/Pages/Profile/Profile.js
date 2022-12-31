@@ -15,7 +15,7 @@ const Profile = () => {
 
     return (
 
-        <div className="w-1/2 mx-auto my-20">
+        <div className="w-3/4 mx-auto my-20">
             <div className="hero-content ">
                 <div className="card  w-full shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">

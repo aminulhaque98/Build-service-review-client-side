@@ -1,11 +1,51 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import "./ServiceDetails.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
-    const { img, title, description, price } = useLoaderData();
+    const { _id, img, title, description, price } = useLoaderData();
+    const [data, setData] = useState([])
+
+
+    console.log('datta user er lagi', data)
+
+    const reviewHandler = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photos.value;
+        const textReview = form.textReview.value;
+
+        console.log(name, photo, textReview)
+
+        const review = {
+            service: _id,
+            name,
+            photo,
+            textReview
+        }
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('review placed successfully')
+                    form.reset();
+                }
+            })
+            .catch(err => console.error(err));
+
+    }
+
     return (
         <div className='grid gap-6 grid-cols-1 md:grid-cols-2 my-20'>
             <div className="card bg-base-100 shadow-xl">
@@ -41,7 +81,7 @@ const ServiceDetails = () => {
                     <>
                         <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
                             <h1 className="text-5xl text-center font-bold">You give some Reviews!</h1>
-                            <form className="card-body">
+                            <form className="card-body" onSubmit={reviewHandler}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Your Name</span>
@@ -49,21 +89,21 @@ const ServiceDetails = () => {
                                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Photo Upload</span>
-                                    </label>
-                                    <input type="text" name='photo' placeholder="Photo Upload" className="input input-bordered" required />
+
+                                    <input type="file" id="imgs" accept="image/png,image/jpeg,.txt,.doc" onChange={(e) => (e.target.files)} name='photos' />
+                                    <label htmlFor="imgs" className="btn btn-outline">Photo Upload</label>
+
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Review Here!</span>
                                     </label>
-                                    <textarea className="textarea textarea-primary" placeholder="What's on your mind about our service write here..."></textarea>
+                                    <textarea name="textReview" className="textarea textarea-primary" placeholder="What's on your mind about our service write here..."></textarea>
 
                                 </div>
                                 <div className="form-control">
 
-                                    <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                    <input className="btn btn-primary" type="submit" value="Reviews" />
                                 </div>
                             </form>
 
