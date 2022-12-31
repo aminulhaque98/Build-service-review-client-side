@@ -23,7 +23,7 @@ const Header = () => {
         <li className='font-semibold'>{
             user?.uid ?
                 <>
-                    <Link to='/' className='font-semibold'>My service</Link>
+                    <Link to='/review' className='font-semibold'>My review</Link>
                     <Link to='/' className='font-semibold'>Add service</Link>
                     <button className='me-3 font-semibold' onClick={handleLogOut} variant="outline-info">LogOut</button>
                 </>

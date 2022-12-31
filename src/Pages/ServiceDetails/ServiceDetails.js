@@ -1,21 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./ServiceDetails.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     const { _id, img, title, description, price } = useLoaderData();
-    const [data, setData] = useState([])
 
-
-    console.log('datta user er lagi', data)
 
     const reviewHandler = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const email = user.email;
         const photo = form.photos.value;
         const textReview = form.textReview.value;
 
@@ -24,6 +22,7 @@ const ServiceDetails = () => {
         const review = {
             service: _id,
             name,
+            email,
             photo,
             textReview
         }
