@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./ServiceDetails.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -7,6 +7,16 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const { _id, img, title, description, price } = useLoaderData();
+    const [image, setImage] = useState([]);
+
+
+    const imagePreview = event => {
+        const image = document.getElementById('image');
+        const imgs = document.getElementById('imgs');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        setImage(image.src)
+    }
+
 
 
     const reviewHandler = event => {
@@ -14,10 +24,8 @@ const ServiceDetails = () => {
         const form = event.target;
         const name = form.name.value;
         const email = user.email;
-        const photo = form.photos.value;
+        const photo = image;
         const textReview = form.textReview.value;
-
-        console.log(name, photo, textReview)
 
         const review = {
             service: _id,
@@ -35,7 +43,6 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     alert('review placed successfully')
                     form.reset();
@@ -88,8 +95,8 @@ const ServiceDetails = () => {
                                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
-
-                                    <input type="file" id="imgs" accept="image/png,image/jpeg,.txt,.doc" onChange={(e) => (e.target.files)} name='photos' />
+                                    <img id='image' className='w-full h-20' alt='photoss' />
+                                    <input type="file" id="imgs" accept="image/png,image/jpeg,.txt,.doc" onChange={imagePreview} name='photos' />
                                     <label htmlFor="imgs" className="btn btn-outline">Photo Upload</label>
 
                                 </div>
