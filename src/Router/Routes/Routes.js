@@ -11,6 +11,7 @@ import NotFound from '../../Pages/NotFoundedPage/NotFound';
 import Profile from '../../Pages/Profile/Profile';
 import Reviews from '../../Pages/Reviews/Reviews';
 import ServiceDetails from '../../Pages/ServiceDetails/ServiceDetails';
+import UpdateUser from '../../Pages/UpdateUser/UpdateUser';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const routes = createBrowserRouter([
@@ -46,6 +47,11 @@ export const routes = createBrowserRouter([
                 path: '/details/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateUser></UpdateUser>,
+                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
             },
             {
                 path: '/review',

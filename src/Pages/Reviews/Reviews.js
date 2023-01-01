@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { FaTachometerAlt } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewsRow from './ReviewsRow';
 
@@ -8,7 +9,7 @@ const Reviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
