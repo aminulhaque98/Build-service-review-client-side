@@ -13,6 +13,25 @@ const Reviews = () => {
             .then(data => setReviews(data))
     }, [user?.email])
 
+    const handlerDelete = id => {
+        const proceed = window.confirm('Are you sure,you want to cancel this review');
+        if (proceed) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remaining = reviews.filter(review => review._id !== id);
+                        setReviews(remaining);
+                    }
+                })
+        }
+
+    }
+
 
     return (
         <div>
@@ -22,9 +41,7 @@ const Reviews = () => {
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                                Delete Review
                             </th>
                             <th>Name</th>
                             <th>Email</th>
@@ -37,6 +54,7 @@ const Reviews = () => {
                             reviews.map(review => <ReviewsRow
                                 key={review._id}
                                 review={review}
+                                handlerDelete={handlerDelete}
                             ></ReviewsRow>)
                         }
                     </tbody>
