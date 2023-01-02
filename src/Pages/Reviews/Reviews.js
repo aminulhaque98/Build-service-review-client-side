@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FaTachometerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewsRow from './ReviewsRow';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
-
+    console.log(reviews)
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`)
@@ -52,11 +53,30 @@ const Reviews = () => {
                     </thead>
                     <tbody>
                         {
-                            reviews.map(review => <ReviewsRow
-                                key={review._id}
-                                review={review}
-                                handlerDelete={handlerDelete}
-                            ></ReviewsRow>)
+                            reviews[0]?.email ?
+                                <>
+                                    {
+                                        reviews.map(review => <ReviewsRow
+                                            key={review._id}
+                                            review={review}
+                                            handlerDelete={handlerDelete}
+                                        ></ReviewsRow>)
+                                    }
+                                </>
+                                :
+                                <tr className=''>
+                                    <td className=''>
+                                        <div className="card w-full bg-neutral text-neutral-content">
+                                            <div className="card-body items-center text-center">
+                                                <h2 className="card-title">Here is your review!</h2>
+                                                <p>You have not added any review.</p>
+                                                <div className="card-actions justify-end">
+                                                    <Link to="/allservice"><button className="btn btn-primary">Please Review</button></Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                         }
                     </tbody>
                     {/* <!-- foot --> */}
