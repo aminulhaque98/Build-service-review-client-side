@@ -24,7 +24,6 @@ const ReviewsRow = ({ review, handlerDelete }) => {
                     </div>
                     <div>
                         <div className="font-bold">{name}</div>
-                        <div className="text-sm opacity-50"></div>
                     </div>
                 </div>
             </td>

@@ -45,7 +45,7 @@ const SignUp = () => {
                     <img src="https://i.ibb.co/FhYkFD8/login-access-protection.webp" alt="login-access-protection" border="0" />
 
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-red-100">
                     <h1 className="text-5xl text-center font-bold">Sign up!</h1>
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">

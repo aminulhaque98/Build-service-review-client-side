@@ -48,7 +48,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to="/"><img className='w-12 h-12 lg-ml-16 ' src="https://i.ibb.co/vjKGKMh/logo.jpg" alt="" /></Link>
-                <Link to="/" className="text-xl font-bold"><span className='text-purple-600'>Truseen</span> Construction Ltd.</Link>
+                <Link to="/" className="text-xl font-bold"><span className='text-purple-600'>Truseen</span> <span className='text-pink-600 text-2xl font-bold italic'>Construction</span> Ltd.</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -65,7 +65,7 @@ const Header = () => {
                             {user?.photoURL ?
 
                                 <figure className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-                                    <img style={{ height: '50px' }} className='w-full h-56 rounded-full' src={user?.photoURL} alt="Shoes" />
+                                    <img style={{ height: '50px' }} className='w-full h-56 rounded-full' src={user?.photoURL} alt="profile" />
                                 </figure>
 
                                 :

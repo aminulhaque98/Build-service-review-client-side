@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FeaturesCard = ({ service }) => {
-    const { name, tumble, date } = service.features[0];
+    const { name, tumble, date } = service?.features[0];
 
 
     return (

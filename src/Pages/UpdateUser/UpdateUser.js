@@ -34,10 +34,11 @@ const UpdateUser = () => {
     }
 
     return (
-        <div className='mx-auto my-20'>
-            <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100 ">
-                <h1 className="text-5xl text-center font-bold">{reviews?.email}</h1>
+        <div className='my-20'>
+            <div className="card mx-auto w-full max-w-lg shadow-2xl bg-red-100 ">
+
                 <form onSubmit={handleUpdateUser} className="card-body" >
+                    <h1 className="text-3xl text-amber-500 mb-5 text-center font-bold">{reviews?.email}</h1>
                     <div className="form-control">
                         <input onChange={handleInputChange} defaultValue={reviews?.name} type="text" name='name' placeholder="Your Name" className="input input-bordered" />
                     </div>
