@@ -8,7 +8,7 @@ const UpdateUser = () => {
     const handleUpdateUser = event => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/reviews/${reviews._id}`, {
+        fetch(`https://service-review-server-side-three.vercel.app/reviews/${reviews._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

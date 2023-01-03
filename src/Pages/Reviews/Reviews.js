@@ -9,7 +9,7 @@ const Reviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://service-review-server-side-three.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('services-token')}`
             }
@@ -30,7 +30,7 @@ const Reviews = () => {
     const handlerDelete = id => {
         const proceed = window.confirm('Are you sure,you want to cancel this review');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://service-review-server-side-three.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -83,7 +83,7 @@ const Reviews = () => {
                                                 <h2 className="card-title">Here is your review!</h2>
                                                 <p>You have not added any review.</p>
                                                 <div className="card-actions justify-end">
-                                                    <Link to="/allservice"><button className="btn btn-primary">Please Add Review</button></Link>
+                                                    <Link to="/services"><button className="btn btn-primary">Please Add Review</button></Link>
                                                 </div>
                                             </div>
                                         </div>

@@ -33,7 +33,7 @@ const Login = () => {
                     email: user.email
                 }
                 //get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-three.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -45,13 +45,13 @@ const Login = () => {
                         console.log(data);
                         localStorage.setItem('services-token', data.token);
                         toast.success('Successfully login to the account');
-                        navigate(from, { reolace: true });
+                        navigate(from, { replace: true });
                     })
 
 
                 // if (user) {
                 //     toast.success('Successfully login to the account');
-                //     navigate(from, { reolace: true });
+                //     navigate(from, { replace: true });
                 // }
                 // else {
                 //     toast.error('Your email is not verified.Please now verified your email address.')
