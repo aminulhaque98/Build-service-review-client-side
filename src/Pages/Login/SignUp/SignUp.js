@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { setAuthToken } from '../../../api/Auth';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
@@ -17,6 +18,7 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                setAuthToken(user);
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)

@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaGooglePlusG } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../../api/Auth';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -42,17 +43,19 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        localStorage.setItem('services-token', data.token)
+                        localStorage.setItem('services-token', data.token);
+                        toast.success('Successfully login to the account');
+                        navigate(from, { reolace: true });
                     })
 
 
-                if (user) {
-                    toast.success('Successfully login to the account');
-                    navigate(from, { reolace: true });
-                }
-                else {
-                    toast.error('Your email is not verified.Please now verified your email address.')
-                }
+                // if (user) {
+                //     toast.success('Successfully login to the account');
+                //     navigate(from, { reolace: true });
+                // }
+                // else {
+                //     toast.error('Your email is not verified.Please now verified your email address.')
+                // }
             })
             .catch(error => {
                 console.error(error);
@@ -69,7 +72,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast.success('Successfully login to the account');
+                setAuthToken(user);
+
             })
             .catch(error => console.error(error))
     }
