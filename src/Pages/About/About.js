@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const About = () => {
+    useTitle('About');
+
     return (
         <div className="hero my-20  rounded-lg">
             <div className="hero-content flex-col lg:flex-row">

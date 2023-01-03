@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import ReviewsRow from './ReviewsRow';
 
 const Reviews = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([]);
+    useTitle('Reviews');
 
 
     useEffect(() => {

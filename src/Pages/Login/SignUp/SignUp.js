@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { setAuthToken } from '../../../api/Auth';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    useTitle('SignUp');
 
     const handleSignUp = event => {
         event.preventDefault();

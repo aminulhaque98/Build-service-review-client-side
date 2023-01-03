@@ -5,6 +5,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     const [visible, setVisible] = useState(3);
 
+
     useEffect(() => {
         fetch('https://service-review-server-side-three.vercel.app/services')
             .then(res => res.json())

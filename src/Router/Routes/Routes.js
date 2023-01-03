@@ -2,8 +2,10 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../Layout/Main';
 import AboutInfo from '../../Pages/About/AboutInfo';
+import AddService from '../../Pages/AddService/AddService';
 import AllServices from '../../Pages/AllServices/AllServices';
 import Blog from '../../Pages/Blog/Blog';
+import FQA from '../../Pages/FQA/FQA';
 import Home from '../../Pages/Home/Home/Home';
 import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
@@ -26,6 +28,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllServices></AllServices>,
+            },
+            {
+                path: '/addService',
+                element: <AddService></AddService>,
             },
             {
                 path: '/aboutinfo',
@@ -62,6 +68,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>,
+            },
+            {
+                path: '/fqa',
+                element: <FQA></FQA>,
             },
 
         ]

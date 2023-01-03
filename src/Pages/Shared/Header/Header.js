@@ -17,14 +17,14 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
 
-        <li className='font-semibold'><Link to='/'>FQA</Link></li>
+        <li className='font-semibold'><Link to='/fqa'>FQA</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
 
         <li className='font-semibold'>{
             user?.uid ?
                 <>
                     <Link to='/review' className='font-semibold'>My review</Link>
-                    <Link to='/' className='font-semibold'>Add service</Link>
+                    <Link to='/addService' className='font-semibold'>Add service</Link>
                     <button className='me-3 font-semibold' onClick={handleLogOut} variant="outline-info">LogOut</button>
                 </>
                 :

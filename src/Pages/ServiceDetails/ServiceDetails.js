@@ -3,12 +3,13 @@ import "./ServiceDetails.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const { _id, img, title, description, price } = useLoaderData();
     const [image, setImage] = useState([]);
-
+    useTitle('Details');
 
     const imagePreview = event => {
         const image = document.getElementById('image');
