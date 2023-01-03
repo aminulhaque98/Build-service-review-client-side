@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ReviewsRow = ({ review, handlerDelete }) => {
     const { _id, name, photo, textReview, email } = review;
 
-    console.log('reviewss', review)
+
     return (
 
         <tr>
@@ -34,7 +34,7 @@ const ReviewsRow = ({ review, handlerDelete }) => {
             </td>
             <td>{textReview}</td>
             <th>
-                <Link to={`/update/${_id}`}><button className="btn btn-ghost btn-xs">Edit User</button></Link>
+                <Link to={`/update/${_id}`}><button className="btn btn-ghost btn-xs">Edit Review</button></Link>
             </th>
 
         </tr>

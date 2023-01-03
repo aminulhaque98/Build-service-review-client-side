@@ -1,19 +1,31 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaTachometerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewsRow from './ReviewsRow';
 
 const Reviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
-    console.log(reviews)
+
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [user?.email])
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('services-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    logOut()
+                }
+                return res.json()
+            })
+            .then(data => {
+                // console.log('check', data)
+
+                setReviews(data)
+            })
+    }, [user?.email, logOut])
 
     const handlerDelete = id => {
         const proceed = window.confirm('Are you sure,you want to cancel this review');
@@ -23,7 +35,7 @@ const Reviews = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+
                     if (data.deletedCount > 0) {
                         alert('deleted successfully');
                         const remaining = reviews.filter(review => review._id !== id);
@@ -71,7 +83,7 @@ const Reviews = () => {
                                                 <h2 className="card-title">Here is your review!</h2>
                                                 <p>You have not added any review.</p>
                                                 <div className="card-actions justify-end">
-                                                    <Link to="/allservice"><button className="btn btn-primary">Please Review</button></Link>
+                                                    <Link to="/allservice"><button className="btn btn-primary">Please Add Review</button></Link>
                                                 </div>
                                             </div>
                                         </div>

@@ -21,7 +21,6 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log('checking', email, password);
 
         signInUser(email, password)
             .then(result => {
@@ -29,9 +28,27 @@ const Login = () => {
                 setError('');
                 form.reset();
 
+                const currentUser = {
+                    email: user.email
+                }
+                //get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('services-token', data.token)
+                    })
+
+
                 if (user) {
-                    navigate(from, { reolace: true });
                     toast.success('Successfully login to the account');
+                    navigate(from, { reolace: true });
                 }
                 else {
                     toast.error('Your email is not verified.Please now verified your email address.')
@@ -52,6 +69,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Successfully login to the account');
             })
             .catch(error => console.error(error))
     }

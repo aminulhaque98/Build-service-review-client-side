@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const ServicesCard = ({ service }) => {
-    const { _id, img, price, title, description, rating } = service;
+    const { _id, img, price, title, description } = service;
 
     return (
 
@@ -13,7 +13,7 @@ const ServicesCard = ({ service }) => {
             <div className="card w-96 bg-base-100 shadow-xl">
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <figure><img className='w-full h-56' src={img} alt="Shoes" /></figure>
+                        <figure><img className='w-full h-56' src={img} alt="picture" /></figure>
                     </PhotoView>
                 </PhotoProvider>
                 <div className="card-body">

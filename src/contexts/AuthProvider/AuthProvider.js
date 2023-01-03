@@ -26,19 +26,20 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUserProfile = (profile) => {
+        setLoading(true);
         return updateProfile(auth.currentUser, profile);
     }
 
 
     const logOut = () => {
         setLoading(true);
+        localStorage.removeItem('services-token');
         return signOut(auth);
     }
 
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
         });

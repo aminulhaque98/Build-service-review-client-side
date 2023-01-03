@@ -34,7 +34,7 @@ const ServiceDetails = () => {
             photo,
             textReview
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://service-review-server-side-three.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,7 +57,7 @@ const ServiceDetails = () => {
             <div className="card bg-base-100 shadow-xl">
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <figure><img className='w-full h-72' src={img} alt="Shoes" /></figure>
+                        <figure><img className='w-full h-72' src={img} alt="pictures" /></figure>
                     </PhotoView>
                 </PhotoProvider>
                 <div className="card-body">

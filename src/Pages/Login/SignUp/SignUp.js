@@ -20,7 +20,6 @@ const SignUp = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)
-                console.log(user);
             })
             .catch(error => {
                 console.error(error);
