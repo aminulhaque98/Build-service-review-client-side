@@ -66,7 +66,6 @@ const ServiceDetails = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-
                         if (data.acknowledged) {
                             alert('review placed successfully')
                             form.reset();

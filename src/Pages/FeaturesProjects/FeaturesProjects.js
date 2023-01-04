@@ -3,7 +3,7 @@ import FeaturesCard from './FeaturesCard/FeaturesCard';
 
 const FeaturesProjects = () => {
     const [services, setServices] = useState([]);
-
+    const [visible, setVisible] = useState(6);
 
     useEffect(() => {
         fetch('https://service-review-server-side-three.vercel.app/services')
@@ -20,7 +20,7 @@ const FeaturesProjects = () => {
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-12'>
 
                 {
-                    services.map(service =>
+                    services.slice(0, visible).map(service =>
                         <FeaturesCard
                             kay={service._id}
                             service={service}
