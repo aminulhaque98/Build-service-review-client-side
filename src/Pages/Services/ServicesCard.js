@@ -17,11 +17,11 @@ const ServicesCard = ({ service }) => {
                     </PhotoView>
                 </PhotoProvider>
                 <div className="card-body">
-                    <h2 className="card-title">{title}</h2>
+                    <h2 className="card-title text-yellow-600">{title}</h2>
                     <p>{description.slice(0, 100) + '...'}</p>
                     <div className='flex'>
 
-                        <p className='text-xl'>Price: ${price}</p>
+                        <p className='text-xl text-purple-800'>Price: ${price}</p>
 
                         <div className="rating">
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
