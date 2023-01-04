@@ -8,15 +8,17 @@ import useTitle from '../../hooks/useTitle';
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const { _id, img, title, description, price } = useLoaderData();
-    const [image, setImage] = useState([]);
+    // const [image, setImage] = useState();
     useTitle('Details');
 
-    const imagePreview = event => {
-        const image = document.getElementById('image');
-        const imgs = document.getElementById('imgs');
-        image.src = URL.createObjectURL(event.target.files[0]);
-        setImage(image.src)
-    }
+
+    //normaly photo upload
+    // const imagePreview = event => {
+    //     const image = document.getElementById('image');
+    //     const imgs = document.getElementById('imgs');
+    //     image.src = URL.createObjectURL(event.target.files[0]);
+    //     setImage(image.src)
+    // }
 
 
 
@@ -25,31 +27,54 @@ const ServiceDetails = () => {
         const form = event.target;
         const name = form.name.value;
         const email = user.email;
-        const photo = image;
+        // const photo = image;
+        const image = form.image.files[0];
         const textReview = form.textReview.value;
 
-        const review = {
-            service: _id,
-            name,
-            email,
-            photo,
-            textReview
-        }
-        fetch('https://service-review-server-side-three.vercel.app/reviews', {
+        //b0e7ee6ce6b56eb9ba71cba89e876465
+
+        const formDate = new FormData()
+        formDate.append('image', image)
+
+        const url = "https://api.imgbb.com/1/upload?key=b0e7ee6ce6b56eb9ba71cba89e876465"
+
+        //imgbb te photo upload
+        fetch(url, {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(review)
+            body: formDate,
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-                    alert('review placed successfully')
-                    form.reset();
+                console.log(data)
+                const { display_url } = data?.data
+
+                //mongodb te data upload
+                const review = {
+                    service: _id,
+                    name,
+                    email,
+                    display_url,
+                    // photo,
+                    textReview
                 }
-            })
-            .catch(err => console.error(err));
+                fetch('https://service-review-server-side-three.vercel.app/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(review)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        if (data.acknowledged) {
+                            alert('review placed successfully')
+                            form.reset();
+                        }
+                    })
+                    .catch(err => console.error(err));
+
+            }).catch(err => console.log(err))
 
     }
 
@@ -95,10 +120,22 @@ const ServiceDetails = () => {
                                     </label>
                                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
                                 </div>
+
+
                                 <div className="form-control">
-                                    <img id='image' className='w-full h-20' alt='photoss' />
+
+
+                                    <label htmlFor='image' className='blog mb- text-sm'>
+                                        Select Image:
+                                    </label>
+                                    <input type='file' id='image' name='image/*' required />
+
+
+                                    {/* normal photoUpload field */}
+
+                                    {/* <img id='image' className='w-full h-20' alt='photoss' />
                                     <input type="file" id="imgs" accept="image/png,image/jpeg,.txt,.doc" onChange={imagePreview} name='photos' />
-                                    <label htmlFor="imgs" className="btn btn-outline">Photo Upload</label>
+                                    <label htmlFor="imgs" className="btn btn-outline">Photo Upload</label> */}
 
                                 </div>
                                 <div className="form-control">

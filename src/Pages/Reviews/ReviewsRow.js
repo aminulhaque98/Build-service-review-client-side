@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ReviewsRow = ({ review, handlerDelete }) => {
-    const { _id, name, photo, textReview, email } = review;
+    const { _id, name, display_url, textReview, email } = review;
 
 
     return (
@@ -20,7 +20,7 @@ const ReviewsRow = ({ review, handlerDelete }) => {
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="w-24 rounded">
-                            <img src={photo} alt="review_photo" />
+                            <img src={display_url} alt="review_photo" />
                         </div>
                     </div>
                     <div>

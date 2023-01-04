@@ -23,8 +23,6 @@ const Reviews = () => {
                 return res.json()
             })
             .then(data => {
-                // console.log('check', data)
-
                 setReviews(data)
             })
     }, [user?.email, logOut])

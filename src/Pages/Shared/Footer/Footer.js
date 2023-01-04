@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="bg-black text-white">
             <div className="footer p-16">
                 <div>
-                    <img className='w-20 h-20 lg-ml-16 ' src="https://i.ibb.co/vjKGKMh/logo.jpg" alt="" />
+                    <img className='w-20 h-20 lg-ml-16 hover:animate-spin' src="https://i.ibb.co/vjKGKMh/logo.jpg" alt="" />
                     <p>Truseen Construction Ltd.<br />Providing reliable tech since 2020</p>
                 </div>
                 <div>
