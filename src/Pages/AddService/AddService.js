@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -52,8 +53,8 @@ const AddService = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.acknowledged) {
-                            alert('service placed successfully')
                             form.reset();
+                            toast.success('Your service placed successfully');
                         }
                     })
                     .catch(err => console.error(err));

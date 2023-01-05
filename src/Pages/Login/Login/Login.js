@@ -60,7 +60,7 @@ const Login = () => {
                 // }
             })
             .catch(error => {
-                console.error(error);
+                toast.error(error.message);
                 setError(error.message);
             })
             .finally(() => {
@@ -73,11 +73,10 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 setAuthToken(user);
-
+                toast.success('Successfully login to the account');
             })
-            .catch(error => console.error(error))
+            .catch(error => toast.error(error.message))
     }
 
 

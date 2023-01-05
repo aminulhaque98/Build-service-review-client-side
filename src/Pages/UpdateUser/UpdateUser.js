@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 
@@ -20,8 +21,7 @@ const UpdateUser = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('user updated successfully')
-
+                    toast.success('Successfully Complete Your updated data!');
                 }
             })
 

@@ -4,6 +4,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import { toast } from 'react-hot-toast';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
@@ -67,8 +68,8 @@ const ServiceDetails = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.acknowledged) {
-                            alert('review placed successfully')
                             form.reset();
+                            toast.success('Your review placed successfully');
                         }
                     })
                     .catch(err => console.error(err));
