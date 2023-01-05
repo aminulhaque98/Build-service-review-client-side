@@ -6,8 +6,14 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [theme, setTheme] = useState();
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+
+
+    const toggleTheme = () => {
+        setTheme((curr) => (curr === "bg-inherit" ? "bg-black" : "bg-inherit"))
+    };
 
     const signInUser = (email, password) => {
         setLoading(true);
@@ -49,11 +55,15 @@ const AuthProvider = ({ children }) => {
 
     }, [])
 
-    const authInfo = { user, loading, createUser, signInUser, setLoading, updateUserProfile, logOut, providerLogin }
+    const authInfo = { user, loading, toggleTheme, createUser, signInUser, setLoading, updateUserProfile, logOut, providerLogin }
     return (
-        <AuthContext.Provider value={authInfo}>
-            {children}
-        </AuthContext.Provider>
+        <div className={theme}>
+
+            <AuthContext.Provider value={authInfo}>
+                {children}
+            </AuthContext.Provider>
+
+        </div>
     );
 };
 
