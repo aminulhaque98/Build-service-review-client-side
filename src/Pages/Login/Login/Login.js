@@ -45,7 +45,6 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        localStorage.setItem('services-token', data.token);
                         toast.success('Successfully login to the account');
                         navigate(from, { replace: true });
                     })
